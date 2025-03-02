@@ -1,0 +1,3 @@
+# Requirements for the project 'Breast Cancer Diagnosis with an ANN'
+# Updated requirements for Python script version
+
