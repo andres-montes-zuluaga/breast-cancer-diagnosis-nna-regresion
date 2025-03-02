@@ -8,11 +8,38 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 import seaborn as sns
 
 class ResultsWindow(QMainWindow):
+    """
+    Clase para mostrar los resultados del análisis de cáncer de mama.
+
+    Esta clase crea una ventana principal que muestra los resultados del modelo,
+    incluyendo la precisión, el reporte de clasificación y la matriz de confusión.
+    También proporciona una pestaña con información del conjunto de datos.
+    """
     def __init__(self, y_test, y_pred, accuracy, classification_rep, breast_cancer):
+        """
+        Inicializa la ventana de resultados.
+
+        Parámetros:
+        - y_test (ndarray): Etiquetas verdaderas del conjunto de prueba.
+        - y_pred (ndarray): Etiquetas predichas por el modelo.
+        - accuracy (float): Precisión del modelo.
+        - classification_rep (str): Reporte de clasificación del modelo.
+        - breast_cancer (Bunch): Objeto original del conjunto de datos de cáncer de mama.
+        """
         super().__init__()
         self.setup_ui(y_test, y_pred, accuracy, classification_rep, breast_cancer)
         
     def setup_ui(self, y_test, y_pred, accuracy, classification_rep, breast_cancer):
+        """
+        Configura la interfaz de usuario de la ventana de resultados.
+
+        Parámetros:
+        - y_test (ndarray): Etiquetas verdaderas del conjunto de prueba.
+        - y_pred (ndarray): Etiquetas predichas por el modelo.
+        - accuracy (float): Precisión del modelo.
+        - classification_rep (str): Reporte de clasificación del modelo.
+        - breast_cancer (Bunch): Objeto original del conjunto de datos de cáncer de mama.
+        """
         self.setWindowTitle("Análisis de Cáncer de Mama")
         self.setGeometry(100, 100, 1200, 600)
         

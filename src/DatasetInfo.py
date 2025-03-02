@@ -1,7 +1,19 @@
 from PyQt5.QtWidgets import (QWidget, QVBoxLayout, QLabel, QTextEdit)
 
 class DatasetInfo(QWidget):
+    """
+    Clase para mostrar la información del conjunto de datos de cáncer de mama.
+
+    Esta clase crea una interfaz gráfica que muestra información general y 
+    características del conjunto de datos de cáncer de mama de Wisconsin (diagnóstico).
+    """
     def __init__(self, breast_cancer):
+        """
+        Inicializa la interfaz de información del conjunto de datos.
+
+        Parámetros:
+        - breast_cancer: Objeto que contiene el conjunto de datos de cáncer de mama.
+        """
         super().__init__()
         layout = QVBoxLayout(self)
         
@@ -70,3 +82,4 @@ Lista completa de características medidas (30 en total):"""
                 padding: 10px;
             }
         """)
+        layout.addWidget(features_table)

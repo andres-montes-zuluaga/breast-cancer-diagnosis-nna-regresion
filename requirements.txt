@@ -1,3 +1,18 @@
 # Requirements for the project 'Breast Cancer Diagnosis with an ANN'
 # Updated requirements for Python script version
 
+# Machine learning and data processing libraries
+scikit-learn==1.2.2  # Tools for data mining and data analysis
+pandas==1.5.3        # Data manipulation and analysis
+numpy==1.24.2        # Fundamental package for scientific computing
+
+# Deep learning library
+keras==2.11.0        # High-level neural networks API
+
+# Visualization libraries
+matplotlib==3.7.1    # Plotting and visualization
+seaborn==0.12.2      # Statistical data visualization
+
+# PyQt5 for the graphical user interface
+PyQt5==5.15.9        # Set of Python bindings for Qt libraries
+
