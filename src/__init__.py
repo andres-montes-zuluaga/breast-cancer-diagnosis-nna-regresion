@@ -1,12 +1,12 @@
 """
-Este módulo inicializa el paquete y realiza las importaciones necesarias para el diagnóstico de cáncer de mama utilizando una red neuronal artificial (ANN) con regresión.
+This module initializes the package and performs the necessary imports for breast cancer diagnosis using an artificial neural network (ANN) with regression.
 
-Importaciones:
-- DatasetInfo: Clase para manejar la información del conjunto de datos.
-- HelpButton: Clase para crear un botón de ayuda en la interfaz de usuario.
-- load_and_prepare_data: Función para cargar y preparar los datos para el modelo.
-- build_ann: Función para construir la red neuronal artificial.
-- ResultsWindow: Clase para mostrar los resultados en una ventana.
+Imports:
+- DatasetInfo: Class to handle dataset information.
+- HelpButton: Class to create a help button in the user interface.
+- load_and_prepare_data: Function to load and prepare data for the model.
+- build_ann: Function to build the artificial neural network.
+- ResultsWindow: Class to display results in a window.
 """
 
 from .DatasetInfo import DatasetInfo

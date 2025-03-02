@@ -9,38 +9,38 @@ import seaborn as sns
 
 class ResultsWindow(QMainWindow):
     """
-    Clase para mostrar los resultados del análisis de cáncer de mama.
+    Class to display the breast cancer analysis results.
 
-    Esta clase crea una ventana principal que muestra los resultados del modelo,
-    incluyendo la precisión, el reporte de clasificación y la matriz de confusión.
-    También proporciona una pestaña con información del conjunto de datos.
+    This class creates a main window that shows the model results,
+    including accuracy, classification report, and confusion matrix.
+    It also provides a tab with dataset information.
     """
     def __init__(self, y_test, y_pred, accuracy, classification_rep, breast_cancer):
         """
-        Inicializa la ventana de resultados.
+        Initializes the results window.
 
-        Parámetros:
-        - y_test (ndarray): Etiquetas verdaderas del conjunto de prueba.
-        - y_pred (ndarray): Etiquetas predichas por el modelo.
-        - accuracy (float): Precisión del modelo.
-        - classification_rep (str): Reporte de clasificación del modelo.
-        - breast_cancer (Bunch): Objeto original del conjunto de datos de cáncer de mama.
+        Parameters:
+        - y_test (ndarray): True labels of the test set.
+        - y_pred (ndarray): Predicted labels by the model.
+        - accuracy (float): Model accuracy.
+        - classification_rep (str): Model classification report.
+        - breast_cancer (Bunch): Original breast cancer dataset object.
         """
         super().__init__()
         self.setup_ui(y_test, y_pred, accuracy, classification_rep, breast_cancer)
         
     def setup_ui(self, y_test, y_pred, accuracy, classification_rep, breast_cancer):
         """
-        Configura la interfaz de usuario de la ventana de resultados.
+        Sets up the user interface of the results window.
 
-        Parámetros:
-        - y_test (ndarray): Etiquetas verdaderas del conjunto de prueba.
-        - y_pred (ndarray): Etiquetas predichas por el modelo.
-        - accuracy (float): Precisión del modelo.
-        - classification_rep (str): Reporte de clasificación del modelo.
-        - breast_cancer (Bunch): Objeto original del conjunto de datos de cáncer de mama.
+        Parameters:
+        - y_test (ndarray): True labels of the test set.
+        - y_pred (ndarray): Predicted labels by the model.
+        - accuracy (float): Model accuracy.
+        - classification_rep (str): Model classification report.
+        - breast_cancer (Bunch): Original breast cancer dataset object.
         """
-        self.setWindowTitle("Análisis de Cáncer de Mama")
+        self.setWindowTitle("Breast Cancer Analysis")
         self.setGeometry(100, 100, 1200, 600)
         
         main_widget = QWidget()
@@ -56,7 +56,7 @@ class ResultsWindow(QMainWindow):
         left_layout = QVBoxLayout(left_panel)
 
         title_layout = QHBoxLayout()
-        title = QLabel("Resultados del Análisis")
+        title = QLabel("Analysis Results")
         title.setStyleSheet("""
             QLabel {
                 font-size: 18px;
@@ -67,9 +67,9 @@ class ResultsWindow(QMainWindow):
         title_layout.addWidget(title)
         
         help_btn = HelpButton(
-            "Este panel muestra los resultados del análisis:\n"
-            "- Precisión: Porcentaje de predicciones correctas\n"
-            "- Reporte de clasificación: Métricas detalladas por clase"
+            "This panel shows the analysis results:\n"
+            "- Accuracy: Percentage of correct predictions\n"
+            "- Classification report: Detailed metrics per class"
         )
         title_layout.addWidget(help_btn)
         title_layout.addStretch()
@@ -88,10 +88,10 @@ class ResultsWindow(QMainWindow):
             }
         """)
         
-        results_text = f"""Resultados del modelo:
-Precisión: {accuracy:.2%}
+        results_text = f"""Model results:
+Accuracy: {accuracy:.2%}
 
-Reporte de clasificación:
+Classification report:
 {classification_rep}
 """
         text_results.setText(results_text)
@@ -100,7 +100,7 @@ Reporte de clasificación:
         right_panel = QWidget()
         right_layout = QVBoxLayout(right_panel)
 
-        matrix_title = QLabel("Matriz de Confusión")
+        matrix_title = QLabel("Confusion Matrix")
         matrix_title.setStyleSheet("""
             QLabel {
                 font-size: 18px;
@@ -116,24 +116,24 @@ Reporte de clasificación:
         
         cm = confusion_matrix(y_test, y_pred)
         sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
-                    xticklabels=['Maligno', 'Benigno'],
-                    yticklabels=['Maligno', 'Benigno'],
+                    xticklabels=['Malignant', 'Benign'],
+                    yticklabels=['Malignant', 'Benign'],
                     ax=ax)
-        ax.set_title('Matriz de Confusión')
-        ax.set_ylabel('Verdadero')
-        ax.set_xlabel('Predicho')
+        ax.set_title('Confusion Matrix')
+        ax.set_ylabel('True')
+        ax.set_xlabel('Predicted')
         
         right_layout.addWidget(canvas)
 
         results_layout.addWidget(left_panel, 40)
         results_layout.addWidget(right_panel, 60)
 
-        tabs.addTab(results_tab, "Resultados")
-        tabs.addTab(DatasetInfo(breast_cancer), "Información del Dataset")
+        tabs.addTab(results_tab, "Results")
+        tabs.addTab(DatasetInfo(breast_cancer), "Dataset Information")
         
         main_layout.addWidget(tabs)
 
-        self.statusBar().showMessage("Análisis completado exitosamente")
+        self.statusBar().showMessage("Analysis completed successfully")
 
         self.setStyleSheet("""
             QMainWindow {background: #f0f0f0;}

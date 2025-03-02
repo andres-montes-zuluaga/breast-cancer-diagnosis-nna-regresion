@@ -2,22 +2,22 @@ from PyQt5.QtWidgets import (QWidget, QVBoxLayout, QLabel, QTextEdit)
 
 class DatasetInfo(QWidget):
     """
-    Clase para mostrar la información del conjunto de datos de cáncer de mama.
+    Class to display information about the breast cancer dataset.
 
-    Esta clase crea una interfaz gráfica que muestra información general y 
-    características del conjunto de datos de cáncer de mama de Wisconsin (diagnóstico).
+    This class creates a graphical interface that shows general information and
+    features of the Wisconsin breast cancer dataset (diagnosis).
     """
     def __init__(self, breast_cancer):
         """
-        Inicializa la interfaz de información del conjunto de datos.
+        Initializes the dataset information interface.
 
-        Parámetros:
-        - breast_cancer: Objeto que contiene el conjunto de datos de cáncer de mama.
+        Parameters:
+        - breast_cancer: Object containing the breast cancer dataset.
         """
         super().__init__()
         layout = QVBoxLayout(self)
         
-        title = QLabel("Información del Dataset")
+        title = QLabel("Dataset Information")
         title.setStyleSheet("font-size: 16px; font-weight: bold;")
         layout.addWidget(title)
         
@@ -34,38 +34,38 @@ class DatasetInfo(QWidget):
         """)
 
         dataset_info = f"""
-CONJUNTO DE DATOS DE CÁNCER DE MAMA DE WISCONSIN (DIAGNÓSTICO)
-===========================================================
+WISCONSIN BREAST CANCER DATASET (DIAGNOSIS)
+===========================================
 
-Información General:
-------------------
-- Número total de muestras: {breast_cancer.data.shape[0]}
-- Número de características: {breast_cancer.data.shape[1]}
-- Clases: {', '.join(breast_cancer.target_names)}
+General Information:
+--------------------
+- Total number of samples: {breast_cancer.data.shape[0]}
+- Number of features: {breast_cancer.data.shape[1]}
+- Classes: {', '.join(breast_cancer.target_names)}
 
-Descripción:
------------
-Este conjunto de datos contiene características computadas a partir de imágenes 
-digitales de aspirados con aguja fina (FNA) de masas mamarias. Estas características 
-describen las características de los núcleos celulares presentes en las imágenes.
+Description:
+------------
+This dataset contains features computed from digitized images
+of fine needle aspirates (FNA) of breast masses. These features
+describe the characteristics of the cell nuclei present in the images.
 
-Características utilizadas en el análisis:
-----------------------------------------
-Las características se agrupan en tres categorías principales, y para cada característica 
-se calcula la media, el error estándar y el "peor" valor (media de los tres valores más grandes):
+Features used in the analysis:
+------------------------------
+The features are grouped into three main categories, and for each feature,
+the mean, standard error, and "worst" value (mean of the three largest values) are calculated:
 
-1. RADIO: Distancia media desde el centro a los puntos del perímetro
-2. TEXTURA: Desviación estándar de los valores de escala de grises
-3. PERÍMETRO: Tamaño del contorno del núcleo
-4. ÁREA: Área del núcleo
-5. SUAVIDAD: Variación local en las longitudes del radio
-6. COMPACIDAD: (perímetro² / área - 1.0)
-7. CONCAVIDAD: Severidad de las porciones cóncavas del contorno
-8. PUNTOS CÓNCAVOS: Número de porciones cóncavas del contorno
-9. SIMETRÍA: Simetría del núcleo
-10. DIMENSIÓN FRACTAL: "Aproximación al perímetro de la costa" - 1
+1. RADIUS: Mean distance from center to points on the perimeter
+2. TEXTURE: Standard deviation of gray-scale values
+3. PERIMETER: Size of the core nucleus
+4. AREA: Area of the core nucleus
+5. SMOOTHNESS: Local variation in radius lengths
+6. COMPACTNESS: (perimeter² / area - 1.0)
+7. CONCAVITY: Severity of concave portions of the contour
+8. CONCAVE POINTS: Number of concave portions of the contour
+9. SYMMETRY: Symmetry of the nucleus
+10. FRACTAL DIMENSION: "Coastline approximation" - 1
 
-Lista completa de características medidas (30 en total):"""
+Complete list of measured features (30 in total):"""
        
         info_text.setText(dataset_info)
         layout.addWidget(info_text)

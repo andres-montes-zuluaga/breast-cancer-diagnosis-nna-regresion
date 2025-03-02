@@ -2,18 +2,18 @@ from PyQt5.QtWidgets import (QPushButton, QMessageBox)
 
 class HelpButton(QPushButton):
     """
-    Clase para crear un botón de ayuda que muestra un mensaje informativo.
+    Class to create a help button that shows an informative message.
 
-    Esta clase hereda de QPushButton y muestra un cuadro de mensaje con texto de ayuda
-    cuando se hace clic en el botón.
+    This class inherits from QPushButton and displays a message box with help text
+    when the button is clicked.
     """
     def __init__(self, help_text, parent=None):
         """
-        Inicializa el botón de ayuda.
+        Initializes the help button.
 
-        Parámetros:
-        - help_text (str): Texto de ayuda que se mostrará en el cuadro de mensaje.
-        - parent (QWidget, opcional): Widget padre del botón.
+        Parameters:
+        - help_text (str): Help text to be displayed in the message box.
+        - parent (QWidget, optional): Parent widget of the button.
         """
         super().__init__("?", parent)
         self.help_text = help_text
@@ -33,6 +33,6 @@ class HelpButton(QPushButton):
 
     def show_help(self):
         """
-        Muestra un cuadro de mensaje con el texto de ayuda.
+        Displays a message box with the help text.
         """
-        QMessageBox.information(self, "Ayuda", self.help_text)
+        QMessageBox.information(self, "Help", self.help_text)

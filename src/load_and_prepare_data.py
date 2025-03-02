@@ -5,22 +5,22 @@ import pandas as pd
 
 def load_and_prepare_data():
     """
-    Carga y prepara el conjunto de datos de cáncer de mama.
+    Loads and prepares the breast cancer dataset.
 
-    Esta función realiza las siguientes tareas:
-    1. Carga el conjunto de datos de cáncer de mama de sklearn.
-    2. Separa las características (X) y las etiquetas (y).
-    3. Convierte las características en un DataFrame de pandas.
-    4. Divide los datos en conjuntos de entrenamiento y prueba.
-    5. Escala las características utilizando StandardScaler.
+    This function performs the following tasks:
+    1. Loads the breast cancer dataset from sklearn.
+    2. Separates the features (X) and labels (y).
+    3. Converts the features into a pandas DataFrame.
+    4. Splits the data into training and test sets.
+    5. Scales the features using StandardScaler.
 
-    Retorna:
-    - X_train_scaled (ndarray): Conjunto de entrenamiento escalado.
-    - X_test_scaled (ndarray): Conjunto de prueba escalado.
-    - y_train (ndarray): Etiquetas del conjunto de entrenamiento.
-    - y_test (ndarray): Etiquetas del conjunto de prueba.
-    - df (DataFrame): DataFrame de pandas con las características originales.
-    - breast_cancer (Bunch): Objeto original del conjunto de datos de cáncer de mama.
+    Returns:
+    - X_train_scaled (ndarray): Scaled training set.
+    - X_test_scaled (ndarray): Scaled test set.
+    - y_train (ndarray): Training set labels.
+    - y_test (ndarray): Test set labels.
+    - df (DataFrame): Pandas DataFrame with the original features.
+    - breast_cancer (Bunch): Original breast cancer dataset object.
     """
     breast_cancer = load_breast_cancer()
     X = breast_cancer.data
