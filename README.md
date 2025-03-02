@@ -20,7 +20,8 @@ If you want to contact me, you can do so via my email: andres.montes-zuluaga@lap
 
 ## Screenshot
 
-![Project Screenshot](path/to/screenshot.png)
+![image](https://github.com/user-attachments/assets/6dca558b-18f6-4005-b542-6f58fb335b43)
+
 
 ## Main Features
 
